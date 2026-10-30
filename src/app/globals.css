@@ -1,0 +1,204 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-gradient: radial-gradient(circle at 10% 20%, #F5F7FF 0%, #EEF2FF 35%, #F0FDFA 70%, #FAF8FF 100%);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-bg: rgba(255, 255, 255, 0.82);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  background: #09090B;
+  color: #1E293B;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ServeBot Soft Pastel Cloud Sky Gradient */
+.cloud-sky-bg {
+  background: linear-gradient(
+    135deg,
+    #FBE4EC 0%,
+    #E8D5F5 25%,
+    #D0E1FD 55%,
+    #C5C6F8 80%,
+    #E0CCFA 100%
+  );
+}
+
+/* Laser Spotlight Beam Animations */
+@keyframes pulseBeam {
+  0%, 100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 35px rgba(236, 72, 153, 0.8));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 60px rgba(168, 85, 247, 0.95));
+  }
+}
+
+.animate-laser-beam {
+  animation: pulseBeam 4s ease-in-out infinite;
+}
+
+/* Floating Clouds Animation */
+@keyframes floatCloud {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-12px) scale(1.03); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+.animate-cloud-float {
+  animation: floatCloud 8s ease-in-out infinite;
+}
+
+/* Glassmorphism utility classes */
+.servebot-glass-panel {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 30px 70px -15px rgba(139, 92, 246, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.servebot-glass-input {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+/* 3D Perspective Container for Studio View */
+.perspective-3d-stage {
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+}
+
+.monitor-3d-tilted {
+  transform: rotateX(12deg) rotateY(-18deg) rotateZ(3deg) scale(0.92);
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.monitor-3d-tilted:hover {
+  transform: rotateX(8deg) rotateY(-12deg) rotateZ(1.5deg) scale(0.94);
+}
+
+/* Glow Text Outline */
+.text-stroke-3d {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.08);
+  color: transparent;
+}
+
+/* ==========================================================================
+   Google Translate Styling (Clean integration, completely hides intrusive banners)
+   ========================================================================== */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+iframe.skiptranslate,
+.goog-te-banner,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+div.skiptranslate:has(iframe.goog-te-banner-frame),
+body > .skiptranslate:not(:has(#google_translate_element)),
+body > iframe[src="javascript:''"],
+body > iframe[src="javascript:\"\""] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0px !important;
+  width: 0px !important;
+  max-height: 0px !important;
+  pointer-events: none !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+  margin-top: 0px !important;
+  transform: none !important;
+}
+
+#google_translate_element {
+  display: inline-flex;
+  align-items: center;
+}
+
+.goog-te-gadget {
+  font-family: inherit !important;
+  font-size: 11px !important;
+  color: #64748b !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+  margin: 0 !important;
+  padding: 5px 10px !important;
+  border-radius: 12px !important;
+  border: 1px solid #c7d2fe !important;
+  background-color: #ffffff !important;
+  color: #1e1b4b !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  outline: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 1px 2px rgba(99, 102, 241, 0.08) !important;
+}
+
+.goog-te-gadget .goog-te-combo:hover {
+  border-color: #6366f1 !important;
+  background-color: #f8faff !important;
+}
+
+.goog-te-gadget .goog-te-combo:focus {
+  border-color: #4f46e5 !important;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Hide standard 'Powered by Google' text to maintain modern SaaS polish */
+.goog-te-gadget > span {
+  display: none !important;
+}
+
+.goog-te-gadget-simple {
+  background-color: #ffffff !important;
+  border: 1px solid #c7d2fe !important;
+  padding: 5px 10px !important;
+  border-radius: 12px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value span {
+  color: #1e1b4b !important;
+  font-weight: 600 !important;
+}
+
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
